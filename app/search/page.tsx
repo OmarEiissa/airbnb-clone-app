@@ -7,17 +7,24 @@ import ListingCard from "../components/ListingCard";
 import Map from "../components/Map";
 
 type SearchParams = {
-  location: string;
-  startDate: string;
-  endDate: string;
-  numOfGuests: string;
+  location?: string;
+  startDate?: string;
+  endDate?: string;
+  numOfGuests?: string;
 };
 
 const SearchResult = async ({
-  searchParams: { location, startDate, endDate, numOfGuests },
+  searchParams,
 }: {
   searchParams: SearchParams;
 }) => {
+  const {
+    location = "Unknown",
+    startDate,
+    endDate,
+    numOfGuests = "1",
+  } = searchParams;
+
   let formattedStartDate;
   let formattedEndDate;
 
