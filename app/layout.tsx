@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Airbnb Clone",
   description: "Airbnb Clone Project",
-  icons: "/logo.png",
+  icons: "/logo.ico",
 };
 
 export default function RootLayout({
