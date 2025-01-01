@@ -14,10 +14,12 @@ type SearchParams = {
 };
 
 const SearchResult = async ({
-  searchParams,
+  searchParams: rawSearchParams,
 }: {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 }) => {
+  const searchParams = await rawSearchParams;
+
   const {
     location = "Unknown",
     startDate,
@@ -25,8 +27,8 @@ const SearchResult = async ({
     numOfGuests = "1",
   } = searchParams;
 
-  let formattedStartDate;
-  let formattedEndDate;
+  let formattedStartDate = "";
+  let formattedEndDate = "";
 
   if (startDate && endDate) {
     formattedStartDate = format(new Date(startDate), "dd MMM yy");
